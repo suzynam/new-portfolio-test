@@ -4,7 +4,7 @@ import { Reveal } from '@/hooks/useScrollReveal';
 import Link from 'next/link';
 import Image from 'next/image';
 
-export const revalidate = 3600;
+export const dynamic = 'force-dynamic';
 
 export default async function LandingPage() {
   const databaseId = process.env.NOTION_DATABASE_ID;

@@ -1,26 +1,178 @@
 @import "tailwindcss";
 
+@theme {
+  --font-sans: var(--font-geist-sans), Inter, system-ui, sans-serif;
+  --font-mono: var(--font-geist-mono), ui-monospace, monospace;
+}
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --background: #000000;
+  --foreground: #ffffff;
+  --accent: #FF4D00;
+  /* Vibrant Orange/Red */
 }
 
 body {
-  background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--background);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #000;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #333;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--accent);
+}
+
+/* Notion block overrides */
+.notion {
+  background: transparent !important;
+  color: inherit !important;
+  font-family: inherit !important;
+}
+
+.notion-header {
+  display: none !important;
+}
+
+/* Premium Typography & Effects */
+.text-glow {
+  text-shadow: 0 0 20px rgba(255, 77, 0, 0.3);
+}
+
+.bg-mesh {
+  background-image:
+    radial-gradient(at 0% 0%, rgba(255, 77, 0, 0.15) 0, transparent 50%),
+    radial-gradient(at 100% 100%, rgba(0, 81, 255, 0.1) 0, transparent 50%);
+}
+
+.glass {
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* Avoid @apply issues in Turbopack for complex selectors */
+.btn-premium {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem 2rem;
+  overflow: hidden;
+  font-weight: 700;
+  color: white;
+  transition: all 0.3s ease;
+  background-color: #18181b;
+  /* zinc-900 */
+  border-radius: 9999px;
+}
+
+.btn-premium:hover {
+  background-color: #27272a;
+  /* zinc-800 */
+}
+
+/* Premium Notion Container */
+.premium-notion-container {
+  background: transparent;
+  color: #fff;
+}
+
+.premium-notion-container .notion {
+  --notion-font: inherit;
+  --notion-max-width: 100%;
+}
+
+/* Hide built-in title, properties and cover since we will handle them in the page wrapper */
+.premium-notion-container .notion-header,
+.premium-notion-container .notion-page-header,
+.premium-notion-container .notion-page-properties,
+.premium-notion-container .notion-collection-page-properties,
+.premium-notion-container .notion-collection-row-property,
+.premium-notion-container .notion-property,
+.premium-notion-container .notion-collection-header,
+.premium-notion-container .notion-title,
+.premium-notion-container .notion-page-cover,
+.premium-notion-container hr,
+.premium-notion-container .notion-hr,
+.premium-notion-container .notion-h1 {
+  display: none !important;
+}
+
+.premium-notion-container .notion-page {
+  padding: 0 !important;
+  margin: 0 !important;
+  width: 100% !important;
+}
+
+/* Improved Typography for "Spacious" feeling */
+.premium-notion-container .notion-text,
+.premium-notion-container .notion-list-item {
+  font-size: 1.25rem !important;
+  /* 20px */
+  line-height: 1.8 !important;
+  margin-bottom: 1.5rem !important;
+  color: #d4d4d8 !important;
+  /* zinc-300 */
+}
+
+.premium-notion-container .notion-h1,
+.premium-notion-container .notion-h2,
+.premium-notion-container .notion-h3 {
+  margin-top: 4rem !important;
+  margin-bottom: 2rem !important;
+  line-height: 1.1 !important;
+  letter-spacing: -0.04em !important;
+  color: #fff !important;
+}
+
+.premium-notion-container .notion-h1 {
+  font-size: 3.5rem !important;
+  font-weight: 900 !important;
+}
+
+.premium-notion-container .notion-h2 {
+  font-size: 2.5rem !important;
+  font-weight: 800 !important;
+}
+
+.premium-notion-container .notion-h3 {
+  font-size: 1.75rem !important;
+  font-weight: 700 !important;
+}
+
+.premium-notion-container .notion-quote {
+  border-left: 4px solid #f97316 !important;
+  /* orange-500 */
+  background: rgba(249, 115, 22, 0.05) !important;
+  padding: 2.5rem 3rem !important;
+  font-size: 1.5rem !important;
+  font-style: italic !important;
+  color: #fff !important;
+  margin: 3rem 0 !important;
+  border-radius: 0 1.5rem 1.5rem 0 !important;
+}
+
+.premium-notion-container .notion-code {
+  background: #09090b !important;
+  /* zinc-950 */
+  border-radius: 1.5rem !important;
+  border: 1px solid rgba(255, 255, 255, 0.05) !important;
+  padding: 2rem !important;
+  margin: 2rem 0 !important;
 }

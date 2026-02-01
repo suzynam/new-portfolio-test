@@ -11,7 +11,7 @@
   "dependencies": {
     "@notionhq/client": "^5.9.0",
     "@types/prismjs": "^1.26.5",
-    "next": "15.1.7",
+    "next": "15.1.12",
     "notion-client": "^7.7.3",
     "notion-types": "^7.7.3",
     "prismjs": "^1.30.0",
@@ -25,7 +25,7 @@
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "eslint": "^9",
-    "eslint-config-next": "15.1.7",
+    "eslint-config-next": "15.1.12",
     "tailwindcss": "^4",
     "typescript": "^5"
   }
